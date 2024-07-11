@@ -1,0 +1,3 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Wed Jul 10 15:17:57 CST 2024","Wed Jul 10 15:17:59 CST 2024","1467","chromium","tests\usePageObjects.spec.ts","","","","parametrized methods",""
+"passed","Wed Jul 10 15:17:52 CST 2024","Wed Jul 10 15:17:57 CST 2024","5110","chromium","tests\usePageObjects.spec.ts","","","","navigate to form page @smoke @regression",""

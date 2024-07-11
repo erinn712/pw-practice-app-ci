@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  playwright-test:
+    image: playwright-test #image name
+    # 建立一個docker image file
+    build:
+      context: . # contextPath
+      dockerfile: ./Dockerfile
+    # 運行測試
+    command: npm run pageObjects-chromium
+    # 將測試結果複製到本機中
+    volumes:
+      # 冒號前面：container外(本機)；冒號後面：container內
+      - ./playwright-report/:/app/playwright-report
+      - ./test-results/:/app/test-results
+
