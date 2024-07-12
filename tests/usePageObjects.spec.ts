@@ -35,3 +35,10 @@ test('parametrized methods', async({ page }) => {
   // await pm.onDatepickerPage().selectDatePickerWithRangeFormToday(2, 3)
 
 })
+
+// CI demo
+test.only('testing with Agros CI', async({ page }) => {
+  const pm = new PageManager(page)
+  await pm.navigateTo().datepickerPage()
+  await pm.navigateTo().smartTablePage()
+})
