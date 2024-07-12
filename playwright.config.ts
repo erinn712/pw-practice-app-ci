@@ -6,7 +6,7 @@ require('dotenv').config();
 
 export default defineConfig<TestOptions>({
   timeout: 40000,
-  globalTimeout: 180000,
+  // globalTimeout: 60000,
   expect: {
     timeout: 2000
   },
@@ -77,5 +77,6 @@ export default defineConfig<TestOptions>({
     command: 'npm run start',
     url: 'http://localhost:4200/',
     // reuseExistingServer: true // port: 4200被占用
+    timeout: 300000
   }
 });
