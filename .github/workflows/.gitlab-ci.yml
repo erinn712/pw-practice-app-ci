@@ -8,7 +8,7 @@ tests:
     - npm ci --force # 加上force免專案內部依賴衝突
     - npx playwright install --with-deps --force
     - npm run pageObjects-chromium # Run your Playwright tests 
-    - when: always
+  when: manual
   allow_failure: true
   # Publish Playwright test results as artifacts and keep for 2 days
   artifacts:
