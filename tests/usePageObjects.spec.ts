@@ -37,7 +37,7 @@ test('parametrized methods', async({ page }) => {
 })
 
 // CI demo
-test.only('testing with Agros CI', async({ page }) => {
+test.only('testing with GitLab CI', async({ page }) => {
   const pm = new PageManager(page)
   await pm.navigateTo().datepickerPage()
   await pm.navigateTo().smartTablePage()
