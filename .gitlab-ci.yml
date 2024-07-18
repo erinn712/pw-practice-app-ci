@@ -1,0 +1,18 @@
+stages:
+  - test
+
+tests:
+  stage: test
+  image: mcr.microsoft.com/playwright:v1.44.1-jammy
+  script:
+    - npm ci --force # 加上force免專案內部依賴衝突
+    - npx playwright install --with-deps --force
+    - npm run pageObjects-chromium # Run your Playwright tests 
+  when: manual
+  allow_failure: true
+  # Publish Playwright test results as artifacts and keep for 2 days
+  artifacts:
+    when: always
+    paths:
+      - playwright-report
+    expire_in: 2 day #保留2天
