@@ -15,7 +15,8 @@ test('navigate to form page @smoke @regression', async({ page }) => {
   await pm.navigateTo().tooltipPage()
 })
 
-test('parametrized methods', async({ page }) => {
+// CI demo
+test.only('parametrized methods', async({ page }) => {
   const pm = new PageManager(page)
   const randomFullName = faker.person.fullName()
   const randomEmail = `${randomFullName.replace(' ','')}${faker.number.int(1000)}@test.com`
