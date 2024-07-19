@@ -21,9 +21,12 @@ test.only('parametrized methods', async({ page }) => {
   const pm = new PageManager(page)
   const randomFullName = faker.person.fullName()
   const randomEmail = `${randomFullName.replace(' ','')}${faker.number.int(1000)}@test.com`
+  const randomPassword = faker.word.noun()
 
   await pm.navigateTo().formLayoutsPage()
-  await pm.onFormLayoutsPage().submitUsingTheGridFormWithCredentialsAndSelectOption(process.env.USERNAME, process.env.PASSWORD, 'Option 2')
+  // .env內的資料不會push到遠端，造成在本機跑pass，在CI上跑會Failed
+  // await pm.onFormLayoutsPage().submitUsingTheGridFormWithCredentialsAndSelectOption(process.env.USERNAME, process.env.PASSWORD, 'Option 2')
+  await pm.onFormLayoutsPage().submitUsingTheGridFormWithCredentialsAndSelectOption(randomEmail, randomPassword, 'Option 2')
   await pm.onFormLayoutsPage().submitInlineFormWithNameEmailAndCheckbox(randomFullName, randomEmail, false)
 })
 
