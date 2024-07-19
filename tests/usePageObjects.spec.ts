@@ -30,7 +30,7 @@ test.only('parametrized methods', async({ page }) => {
   await pm.onFormLayoutsPage().submitInlineFormWithNameEmailAndCheckbox(randomFullName, randomEmail, false)
 })
 
-test('testing with GitLab CI', async({ page }) => {
+test.only('testing with GitLab CI', async({ page }) => {
   const pm = new PageManager(page)
   await pm.navigateTo().datepickerPage()
   await pm.navigateTo().smartTablePage()
