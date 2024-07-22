@@ -17,7 +17,7 @@ test('navigate to form page @smoke @regression', async({ page }) => {
 })
 
 // CI demo
-test.only('parametrized methods', async({ page }) => {
+test('parametrized methods', async({ page }) => {
   const pm = new PageManager(page)
   const randomFullName = faker.person.fullName()
   const randomEmail = `${randomFullName.replace(' ','')}${faker.number.int(1000)}@test.com`
@@ -38,7 +38,7 @@ test.only('testing with GitLab CI', async({ page }) => {
   await argosScreenshot(page, "datepicker page")
 })
 
-test.only('radio buttons', async({ page }) => {
+test('radio buttons', async({ page }) => {
   const pm = new PageManager(page)
   await pm.navigateTo().formLayoutsPage()
   const usingTheGridForm = page.locator('nb-card', { hasText: "Using the Grid"})
