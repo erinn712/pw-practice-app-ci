@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test'
 import { PageManager } from '../page-objects/pageManager'
 import { faker } from '@faker-js/faker'
-import { timeout } from 'rxjs-compat/operator/timeout'
+import { argosScreenshot } from "@argos-ci/playwright"
 
 test.beforeEach(async({ page })=> {
   await page.goto('/') // config file裡的baseURL
@@ -32,8 +32,10 @@ test.only('parametrized methods', async({ page }) => {
 
 test.only('testing with GitLab CI', async({ page }) => {
   const pm = new PageManager(page)
+  await pm.navigateTo().formLayoutsPage()
+  await argosScreenshot(page, "form layouts page")
   await pm.navigateTo().datepickerPage()
-  await pm.navigateTo().smartTablePage()
+  await argosScreenshot(page, "datepicker page")
 })
 
 test.only('radio buttons', async({ page }) => {
